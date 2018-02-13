@@ -28,9 +28,8 @@ exit(-1);
 
 int main(int argc,char *argv[])
 {
-	int fd,ip,reg1,count;
+	int fd,i,reg1,count;
 	char buf[2];
-	//ch = atoi(argv[1]);
 	fd = open("/dev/TIMER0",0);
 	if(fd<0){
 	printf("cannot open file: %d\n",fd);
@@ -39,8 +38,8 @@ int main(int argc,char *argv[])
 	
 	printf(" Enter 1 to read counter and 2 for using delay\n");
 	
-	scanf("%d",&ip);
-	switch(ip)
+	scanf("%d",&i);
+	switch(i)
 	{
           case 1:
 	  reg1=read(fd,buf,2);
@@ -55,8 +54,7 @@ int main(int argc,char *argv[])
 	  scanf("%u",&val);
   	  delay_ms(fd,val);	
 	  break;
-	  default:
-	  printf("command not found\n");
+	  default:printf("command not found\n");
 	}
 	
   	return 0;
